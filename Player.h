@@ -1,10 +1,18 @@
 #pragma once
-#include "Character.h"
+#include "Actor.h"
+#include "Player.h"
 
-class Player : public Character
+class Player : public Actor
 {
 public:
-	Player();
-	virtual ~Player();
+	Player() 
+	{
+		Shape = 'P';
+		Location.X = 1;
+		Location.Y = 1;
+	}
+	virtual ~Player() {}
+
+	//virtual void Render() override {}
 };
 
