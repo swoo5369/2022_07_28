@@ -5,6 +5,7 @@
 #include "Goal.h"
 #include "Input.h"
 #include "Process.h"
+#include "Draw.h"
 
 using namespace std;
 
@@ -14,7 +15,8 @@ int main()
 	while (true)
 	{
 		int KeyCode = Input();
-		Process(Input);
+		Process(KeyCode);
+		Draw();
 	}
 
 
