@@ -7,12 +7,15 @@ class Actor;
 class World
 {
 public:
-	World() {}
-	virtual ~World() {}
+	World();
+	virtual ~World();
 
 	std::vector<Actor*> ActorList;
 
 	void SpawnActor(Actor* NewActor);
-	void DestroyActor(Actor* DeletedActor);
+	std::vector<Actor*>::iterator DestroyActor(Actor* DeletedActor);
+
+	void Tick();
+	void Render();
 };
 

@@ -1,31 +1,39 @@
+#include "Engine.h"
 #include <iostream>
-#include <vector>
-#include "Player.h"
-#include "Monster.h"
-#include "Gate.h"
-#include "World.h"
-
+#include<algorithm>
 
 using namespace std;
 
 int main()
 {
-	World* MyWorld = new World();
+	/*int Numbers[10] = { 10, 9, 5, 2, 4, 1, 3, 6, 8, 7 };*/
+	/*int temp = 0;
 
-	MyWorld->SpawnActor(new Player());
-	MyWorld->SpawnActor(new Monster());
-
-	//range for
-	for (Actor* MyActor : MyWorld->ActorList)
+	for (int i = 0; i < 10; ++i)
 	{
-		MyActor->Render();
-	}
-	//for (int i = 0; i < MyWorld->ActorList.size(); ++i)
-	//{
-	//	MyWorld->ActorList[i]->Render();
-	//}
+		for (int j = i; j < 10; ++j)
+		{
+			if (a[i] > a[j])
+			{
+				temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+			}
+		}
+	}*/
+	/*std::sort(&Numbers[0], &Numbers[10]);
 
-	delete MyWorld;
+	for (int k = 0; k < 10; ++k)
+	{
+		std::cout << Numbers[k] << " ";
+	}*/
+
+	Engine* MyEngine = Engine::GetInstance();
+
+	MyEngine->LoadMap("level1.txt");
+	MyEngine->Run();
+
+	delete MyEngine;
 
 	return 0;
 }

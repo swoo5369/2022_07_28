@@ -1,6 +1,19 @@
 #include "World.h"
-#include <algorithm>
+#include "Actor.h"
 
+World::World()
+{
+}
+
+World::~World()
+{
+	for (auto Current : ActorList)
+	{
+		delete Current;
+	}
+
+	ActorList.clear();
+}
 
 void World::SpawnActor(Actor* NewActor)
 {
@@ -11,4 +24,22 @@ std::vector<Actor*>::iterator World::DestroyActor(Actor* DeletedActor)
 {
 	return ActorList.erase(find(ActorList.begin(),
 		ActorList.end(), DeletedActor));
+}
+
+void World::Tick()
+{
+	//range for
+	for (Actor* MyActor : ActorList)
+	{
+		MyActor->Tick();
+	}
+}
+
+void World::Render()
+{
+	for (Actor* MyActor :ActorList)
+	{
+		MyActor->Render();
+	}
+
 }

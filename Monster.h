@@ -6,9 +6,17 @@ class Monster : public Actor
 public:
 	Monster()
 	{
+		SortOrder = 4;
+		bCollisionEnabled = false;
+	}
+	Monster(int NewX, int NewY)
+	{
 		Shape = 'M';
-		Location.X = 6;
-		Location.Y = 6;
+		SortOrder = 4;
+		bCollisionEnabled = false;
+
+		Location.X = NewX;
+		Location.Y = NewY;
 	}
 	virtual ~Monster() {}
 };
